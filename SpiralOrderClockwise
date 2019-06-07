@@ -1,0 +1,33 @@
+def printSpiral(A):
+    l=0 
+    t=0
+    r=A-1
+    b=A-1
+    dir=0
+    n=1
+    list=[0]*A
+    for i in range(A):
+        list[i]=[0]*A
+    while l<=r and t<=b:
+        if dir==0:
+            for i in range(l,r+1):
+                list[t][i]=n
+                n+=1
+            t+=1
+        elif dir==1:
+            for i in range(t,b+1):
+                list[i][r]=n
+                n+=1
+            r-=1
+        elif dir==2:
+            for i in range(r,l-1,-1):
+                list[b][i]=n
+                n+=1
+            b-=1
+        elif dir==3:
+            for i in range(b,t-1,-1):
+                list[i][l]=n
+                n+=1
+            l+=1
+        dir=(dir+1)%4
+    print(list)
